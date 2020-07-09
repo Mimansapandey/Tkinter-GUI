@@ -1,0 +1,131 @@
+#from tkinter import *
+#import sqlite3
+
+
+#def stu():
+    #con = sqlite3.connect('mysdb.db')
+    #c = con.cursor()
+    #c.execute("CREATE TABLE STUDENTS (Serial_No int, Enrollment_No int, Name Text, Marks int)")
+    #c.execute("INSERT into STUDENTS values (1,8760,'Mia',98)")
+    #c.execute("INSERT into STUDENTS values (2,8761,'Ashley',87)")
+    #c.execute("INSERT into STUDENTS values (3,8762,'john',67)")
+    #c.execute("INSERT into STUDENTS values (4,8763,'carlos',99)")
+    #c.execute("INSERT into STUDENTS values (5,8764,'rachael',45)")
+    #c.execute("INSERT into STUDENTS values (6,8765,'Jean',78)")
+    #c.execute("INSERT into STUDENTS values (7,8766,'Anna',95)")
+    #c.execute("INSERT into STUDENTS values (8,8767,'Nancy',78)")
+    #c.execute("INSERT into STUDENTS values (9,8768,'SVM',35)")
+    #c.execute("INSERT into STUDENTS values (10,8770,'sophia',28)")
+    c.execute("SELECT DISTINCT * FROM STUDENTS")
+#print(c.fetchall())
+#con.close()
+#con.commit() 
+
+#con.cursor()
+
+#def emp():
+conn = sqlite3.connect('myempb.db')
+    #c.execute("CREATE TABLE EMPLOYEES (Serial_No int, Employee_ID int, Name Text, Experience int)")
+    #c.execute("INSERT into EMPLOYEES values (1,1230,'emanuel',98)")
+    #c.execute("INSERT into EMPLOYEES values (2,1231,'laura',98)")
+    #c.execute("INSERT into EMPLOYEES values (3,1232,'joseph',98)")
+    #c.execute("INSERT into EMPLOYEES values (4,1233,'carly',98)")
+    #c.execute("INSERT into EMPLOYEES values (5,1234,'selena',98)")
+    #c.execute("INSERT into EMPLOYEES values (6,1235,'hannah',98)")
+    #c.execute("INSERT into EMPLOYEES values (7,1236,'justin',98)")
+    #c.execute("INSERT into EMPLOYEES values (8,1237,'cameron',98)")
+    #c.execute("INSERT into EMPLOYEES values (9,1238,'hailey',98)")
+    #c.execute("INSERT into EMPLOYEES values (10,1239,'ariana',98)")
+    #c.execute('SELECT * FROM EMPLOYEES')
+#print(c.fetchall())
+
+#con.close()
+#con.commit()
+#from tkinter import *
+#box = Tk()
+#fr1 = Frame(box)
+#fr1.pack()
+#fr2 = Frame(box)
+#fr2.pack()
+#fr3 = Frame(box)
+#fr3.pack()
+#box.title("Database")
+#embut = Button(fr1,text = 'Employees',bg = 'red')
+#embut.pack()
+#stbut = Button(fr3,text = 'Student',bg = 'blue')
+#stbut.pack()
+#box.mainloop()
+
+from tkinter import *
+from tkinter.ttk import Combobox
+import sqlite3
+
+box = Tk()
+box.geometry('500x500')
+box.title('Database')
+box.configure(bg='powder blue')
+
+
+
+menu = Menu(box)
+box.config(menu = menu)
+
+subm = Menu(menu)
+menu.add_cascade(label="Help",menu=subm)
+subm.add_command(label="Sqlite3 Docs",command=help)	
+ls = Listbox(width = 50,height = 1,selectmode = SINGLE,bg = 'yellow')
+l = ['Update database']
+for i in l:
+	ls.insert(l.index(i),i)
+ls.pack()
+mb = Menu(box)
+box.config(menu = mb)
+def hp():
+	print("This page contains a database for employees and students, please click on the the desired option to proceed")
+Help = Menu(mb)
+mb.add_cascade(label = 'Help',menu = Help,command = hp)
+std = Label(box,text = 'Student Name',bg = 'yellow',height = '2')
+std.place(x = 10,y = 30)
+stde = Entry(box,width = 30)
+stde.place(x = 120,y = 30)
+std1 = Label(box,text = 'Enrollment No',bg = 'yellow',height = '2')
+std1.place(x=10,y= 70)
+std1e = Entry(box,width = 30)
+std1e.place(x=120,y = 70)
+std2 = Label(box,text = 'Total Marks',bg = 'yellow',height = '2')
+std2.place(x=10,y=110)
+std2e = Entry(box,width=30)
+std2e.place(x = 120,y =110)
+std3 = Label(box,text = 'Current Age',bg = 'yellow',height = '2')
+std3.place(x=10,y = 150)
+std3e = Entry(box,width = 30)
+std3e.place(x=120,y = 150)
+
+emp = Label(box,text = 'Employee Name',bg = 'yellow',height = '2')
+emp.place(x = 710,y = 30)
+empe = Entry(box,width = 30)
+empe.place(x = 830,y = 30)
+emp1 = Label(box,text = 'Employee Id',bg = 'yellow',height = '2')
+emp1.place(x=710,y= 70)
+emp1e = Entry(box,width = 30)
+emp1e.place(x=830,y = 70)
+emp2 = Label(box,text = 'Experience',bg = 'yellow',height = '2')
+emp2.place(x=710,y=110)
+emp2e = Entry(box,width=30)
+emp2e.place(x = 830,y =110)
+emp3 = Label(box,text = 'Current salary',bg = 'yellow',height = '2')
+emp3.place(x=710,y = 150)
+emp3e = Entry(box,width = 30)
+emp3e.place(x=830,y = 150)
+
+
+
+but1 = Button(box,text = 'Update',bg = 'yellow',fg = 'blue')
+but1.place(x=190,y=190)
+but2 = Button(box, text = 'Show',bg = 'yellow',fg = 'blue')
+but2.place(x= 270,y=190)
+but3 = Button(box,text = 'Update',bg = 'yellow',fg = 'blue')
+but3.place(x=890,y=190)
+but4 =Button(box, text = 'Show',bg = 'yellow',fg = 'blue')
+but4.place(x=970,y=190)
+box.mainloop()
