@@ -1,0 +1,29 @@
+#student login
+from tkinter import *
+box = Tk()
+fr1 = Frame(box)
+fr1.pack()
+fr2 = Frame(box)
+fr2.pack()
+box.title('Student Login')
+''
+Enr = Label(fr1, text = 'Enrollment number')
+Enr.pack(side = 'right')
+Ene = Entry(fr1, width = 40)
+Ene.pack()
+Pwd = Label(fr2, text = 'Password')
+Pwd.pack(side = 'right')
+Pwe = Entry(fr2, width = 40)
+Pwe.pack()
+ 
+def fun():
+    Enrno=Ene.get()
+    Passwd=Pwe.get()
+    Ene.delete(0,END)
+    Pwe.delete(0,END)
+    print(f'This is your login information')
+    print(f'Enrollment number is : {Enrno}\n Password is : {Passwd}')
+
+but = Button(box, text = 'Enter',bg = 'red',fg = 'white', command = fun)
+but.pack()
+box.mainloop()
